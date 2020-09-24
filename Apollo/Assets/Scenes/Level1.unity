@@ -788,6 +788,11 @@ PrefabInstance:
       propertyPath: playerSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: -8521117626535856059, guid: 8a0a9b6143b5ca84a9d8d56faa86be69,
+        type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 1616307674}
     - target: {fileID: 2350339097709422870, guid: 8a0a9b6143b5ca84a9d8d56faa86be69,
         type: 3}
       propertyPath: m_Name
