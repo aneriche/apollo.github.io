@@ -9,7 +9,10 @@ public class PlayerMovement : MonoBehaviour
 
     public float playerSpeed = 2.0f;
     private float gravity = -9.81f;
-    private float jumpHeight = 1.0f;
+    //private float jumpHeight = 1.0f;
+
+    // Get the joystick gameobject
+    public Joystick joystick;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 move = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         if (move != Vector3.zero) 
@@ -34,10 +37,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Changes the height position of the player..
-        if (Input.GetButtonDown("Jump") && controller.isGrounded)
+        /*if (Input.GetButtonDown("Jump") && controller.isGrounded)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity);
-        }
+        }*/
 
         playerVelocity.y += gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
