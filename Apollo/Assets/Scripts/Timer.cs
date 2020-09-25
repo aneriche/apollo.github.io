@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
     public float timeRemaining;
-    public TextMesh textObject;
+    //public TextMesh textObject;
+    public TMP_Text textObject;
 
     void Start() {
         setUpTimer(30);
@@ -13,7 +15,8 @@ public class Timer : MonoBehaviour
 
     public void setUpTimer(float totalTime) {
         timeRemaining = totalTime;
-        textObject = gameObject.GetComponent<TextMesh>();
+        //textObject = gameObject.GetComponent<TextMesh>();
+        textObject = gameObject.GetComponent<TMP_Text>();
         timeRemaining = timeRemaining - Time.deltaTime;
         DisplayTime(timeRemaining);
     }
