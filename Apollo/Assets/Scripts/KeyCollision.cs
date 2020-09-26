@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class KeyCollision : MonoBehaviour
 { 
+    [SerializeField] private Image keyImage;
 
     public bool obtainedKey;
 
@@ -11,6 +13,7 @@ public class KeyCollision : MonoBehaviour
         {
             obtainedKey = true;
             Destroy (this.gameObject);
+            keyImage.enabled = true;
         }
     }
 }
