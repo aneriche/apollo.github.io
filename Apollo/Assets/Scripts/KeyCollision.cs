@@ -1,15 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class KeyCollision : MonoBehaviour
 { 
-	void OnCollisionEnter(Collision other)
- {
-            if (other.gameObject.name == "Player")
-           {
-           Debug.Log("Inside");
-                    Destroy (this.gameObject);
-           }
- }
+
+    public bool obtainedKey;
+
+	void OnCollisionEnter(Collision other) 
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            obtainedKey = true;
+            Destroy (this.gameObject);
+        }
+    }
 }
