@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Timer : MonoBehaviour
@@ -10,7 +11,7 @@ public class Timer : MonoBehaviour
     public TMP_Text textObject;
 
     void Start() {
-        setUpTimer(30);
+        setUpTimer(60);
     }
 
     public void setUpTimer(float totalTime) {
@@ -39,7 +40,7 @@ public class Timer : MonoBehaviour
             DisplayTime(timeRemaining);
         } 
         else {
-            //whatever action on end of timer
+            SceneManager.LoadScene("Menu");
         }
     }
 }

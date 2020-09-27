@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 playerVelocity;
     private CharacterController controller;
 
-    public float playerSpeed = 2.0f;
+    public float playerSpeed = 1.0f;
     private float gravity = -9.81f;
     //private float jumpHeight = 1.0f;
 
