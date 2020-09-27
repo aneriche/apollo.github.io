@@ -15,6 +15,10 @@ public class PlayerCollision : MonoBehaviour
         else if (col.collider.tag == "Door" && gameObject.GetComponent<PlayerInfo>().hasKey == true) {
             Destroy(col.collider.gameObject);
             keyImage.enabled = false;
+            this.gameObject.GetComponent<PlayerInfo>().hasKey = false;
+        }
+        else if (col.collider.tag == "Door") {
+            Debug.Log("colliding with no key");
         }
     }
 }
