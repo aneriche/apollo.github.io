@@ -8,7 +8,6 @@ public class DoorFunctionality : MonoBehaviour
     public GameObject endDialogue;
     void OnDestroy() {
         Debug.Log("OnDestroy");
-        //endDialogue.enabled = true;
         endDialogue.SetActive(true);
     }
 }
