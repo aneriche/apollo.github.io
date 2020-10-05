@@ -7,6 +7,7 @@ TagManager:
   - Tile
   - Door
   - Key
+  - wallx
   layers:
   - Default
   - TransparentFX
