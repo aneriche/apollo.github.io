@@ -20,5 +20,9 @@ public class PlayerCollision : MonoBehaviour
         else if (col.collider.tag == "Door") {
             Debug.Log("colliding with no key");
         }
+        else if (col.collider.tag == "Transparent") {
+            Physics.IgnoreCollision(GetComponent<Collider>(), col.collider);
+            Debug.Log("transparent");
+        }
     }
 }
