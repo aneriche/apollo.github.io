@@ -7,7 +7,7 @@ public class TransformExtension : MonoBehaviour
 
     void Update()
     {
-        transform.position += new Vector3(0,0,Time.deltaTime*-2);
+        transform.position += new Vector3(0,0,Time.deltaTime*-5);
     }
 
   

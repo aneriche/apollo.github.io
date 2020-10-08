@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        Vector3 move = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
+        Vector3 move = new Vector3(joystick.Horizontal + Input.GetAxis("Horizontal"), 0, joystick.Vertical + Input.GetAxis("Vertical"));
         move = Camera.main.transform.TransformDirection(move);
         move.y = 0.0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
