@@ -670,10 +670,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 1772738c-899f-4c0d-9f04-224606957f90
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: Apollo
+  organizationId: aneriche
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
