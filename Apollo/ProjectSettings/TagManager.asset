@@ -9,6 +9,7 @@ TagManager:
   - Key
   - wallx
   - Transparent
+  - Despawn
   layers:
   - Default
   - TransparentFX
