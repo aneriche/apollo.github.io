@@ -5,12 +5,14 @@ using UnityEngine;
 public class ApolloAnalytics : MonoBehaviour
 {
     Dictionary<string, float> keyCollectionTime = new Dictionary<string, float>();
-     Dictionary<string, float> keyToKeyTime = new Dictionary<string, float>();
+    Dictionary<string, float> keyToKeyTime = new Dictionary<string, float>();
 
     int keysCollected = 0;
 
     Dictionary<string, float> keyToDoorTimings = new Dictionary<string, float>();
     Dictionary<string, float> doorToDoorTimings = new Dictionary<string, float>();
+
+    Dictionary<string, int> powerUpCollection = new Dictionary<string, int>();
 
     int doorsCrossed = 0;
 
@@ -20,25 +22,34 @@ public class ApolloAnalytics : MonoBehaviour
     float time = 0;
     void Start()
     {
+        initializePowerUpDictionary();
+    }
+
+    public void initializePowerUpDictionary(){
+        powerUpCollection.Add("Time",0);
+    }
+
+    public void doorCollisionsWithoutKeys(){
         
     }
 
+    public void powerUps(string powerUpName){
+        powerUpName = "Time";
+        int powerUpCount = powerUpCollection[powerUpName] + 1;
+        powerUpCollection[powerUpName] = powerUpCount;
+    }
+
     public void newLevel(){
-        keyCollectionTime = new Dictionary<string, float>();
-        keyToKeyTime = new Dictionary<string, float>();
+        keyCollectionTime.Clear();
+        keyToKeyTime.Clear();
         keysCollected = 0;
 
+        powerUpCollection.Clear();
+        initializePowerUpDictionary();
         level++;
-
         time = 0;
     }
     public void keyCollected(){
-        // string lastKeyCollected = "key" + keysCollected;
-        // float timeForLastKey = keyCollectionTime.ContainsKey(lastKeyCollected) ? keyCollectionTime[lastKeyCollected]: 0;
-        // float timeBetweenTwoKeyCollection = time - timeForLastKey;
-        // Debug.Log("last key collected " + lastKeyCollected);
-        // Debug.Log("current time"+ time);
-        // Debug.Log("timeBetweenTwoKeyCollection " + timeBetweenTwoKeyCollection);
         keysCollected++;
         keyCollectionTime["key" + keysCollected] = time;
         Debug.Log(keyCollectionTime["key" + keysCollected]);
