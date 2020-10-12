@@ -11,9 +11,11 @@ public class PlayerCollision : MonoBehaviour
         if (col.collider.tag == "Key") {
             Destroy(col.collider.gameObject);
             this.gameObject.GetComponent<PlayerInfo>().keyCount++;
+            this.gameObject.GetComponent<ApolloAnalytics>().keyCollected();
             keyPanel.gameObject.SetActive(true);
         }
         else if (col.collider.tag == "Door" && gameObject.GetComponent<PlayerInfo>().keyCount > 0) {
+            this.gameObject.GetComponent<ApolloAnalytics>().doorsPassed();
             this.gameObject.GetComponent<PlayerInfo>().keyCount--;
             if (this.gameObject.GetComponent<PlayerInfo>().keyCount == 0) {
                 keyPanel.gameObject.SetActive(false);
