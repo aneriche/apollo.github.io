@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour
     public TMP_Text textObject;
 
     void Start() {
-        setUpTimer(60);
+        setUpTimer(90);
     }
 
     public void setUpTimer(float totalTime) {

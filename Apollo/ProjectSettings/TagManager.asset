@@ -10,6 +10,9 @@ TagManager:
   - wallx
   - Transparent
   - Despawn
+  - Level
+  - Time
+  - RBC
   layers:
   - Default
   - TransparentFX

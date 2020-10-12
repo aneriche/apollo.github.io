@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class PlayerInfo : MonoBehaviour
 {
-    public bool hasKey = false;
+    public int keyCount = 0;
 }
