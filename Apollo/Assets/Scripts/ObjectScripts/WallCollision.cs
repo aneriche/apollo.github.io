@@ -10,14 +10,16 @@ public class WallCollision : MonoBehaviour
         if (col.collider.tag == "RBC") {
             
         }
-        if (col.gameObject.GetComponent<ObjectInfo>().tags[0].Equals("Despawn")) {
-            Destroy(col.collider.gameObject);
-            Destroy(col.collider.gameObject.transform.parent.gameObject);
-            Debug.Log("destroy");
-        }
-        if (col.collider.tag == "Despawn")
+        else if (col.collider.tag == "Despawn")
         {
             Destroy(col.collider.gameObject);
+        }
+        if (col.gameObject.GetComponent<ObjectInfo>() != null) {
+            if (col.gameObject.GetComponent<ObjectInfo>().tags[0].Equals("Despawn")) {
+                Destroy(col.collider.gameObject);
+                Destroy(col.collider.gameObject.transform.parent.gameObject);
+                Debug.Log("destroy");
+            }
         }
     }
     //public class triggerChangeMaterial : MonoBehaviour

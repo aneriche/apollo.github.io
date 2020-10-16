@@ -7,16 +7,16 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     public float timeRemaining;
-    //public TextMesh textObject;
     public TMP_Text textObject;
+    public bool stopTime;
 
     void Start() {
         setUpTimer(90);
+        stopTime = false;
     }
 
     public void setUpTimer(float totalTime) {
         timeRemaining = totalTime;
-        //textObject = gameObject.GetComponent<TextMesh>();
         textObject = gameObject.GetComponent<TMP_Text>();
         timeRemaining = timeRemaining - Time.deltaTime;
         DisplayTime(timeRemaining);
@@ -35,12 +35,11 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timeRemaining > 0) {
-            timeRemaining -= Time.deltaTime;
-            DisplayTime(timeRemaining);
-        } 
-        else {
-            SceneManager.LoadScene("Menu");
+        if (!stopTime) {
+            if(timeRemaining > 0) {
+                timeRemaining -= Time.deltaTime;
+                DisplayTime(timeRemaining);
+            } 
         }
     }
 }

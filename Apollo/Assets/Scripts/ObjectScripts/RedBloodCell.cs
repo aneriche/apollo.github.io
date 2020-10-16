@@ -8,6 +8,7 @@ public class RedBloodCell : MonoBehaviour
     public float speed;  
     private int current;  
     public bool dontMove = false;
+    public GameObject fat;
     void Start() {
     }  
     
@@ -25,21 +26,36 @@ public class RedBloodCell : MonoBehaviour
     }
 
     void OnCollisionExit(Collision col) {
-        dontMove = false;
+        //dontMove = false;
         if (col.collider.tag == "Door") {
             //Debug.Log("false");
-            dontMove = false;
+            //dontMove = false;
         }
     }
 
     void Update() { 
-        if (!dontMove) {
+        /*if (!dontMove) {
             if (transform.position != target[current].position) 
             {  
                 Vector3 pos = Vector3.MoveTowards(transform.position, target[current].position, speed * Time.deltaTime);  
-                GetComponent < Rigidbody > ().MovePosition(pos);  
+                GetComponent<Rigidbody>().MovePosition(pos);  
             } 
             else current = (current + 1) % target.Length;  
+        }
+        else {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }*/
+
+        if (fat == null) {
+            if (transform.position != target[current].position) 
+            {  
+                Vector3 pos = Vector3.MoveTowards(transform.position, target[current].position, speed * Time.deltaTime);  
+                GetComponent<Rigidbody>().MovePosition(pos);  
+            } 
+            else current = (current + 1) % target.Length;  
+        }
+        else {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }  
 }
