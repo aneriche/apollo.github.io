@@ -6,12 +6,17 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public float timeRemaining;
+    public float timeRemaining = -100f;
     public TMP_Text textObject;
     public bool stopTime;
 
     void Start() {
-        setUpTimer(90);
+        if (timeRemaining == -100f) {
+            setUpTimer(90);
+        }
+        else {
+            setUpTimer(timeRemaining);
+        }
         stopTime = false;
     }
 

@@ -8,7 +8,10 @@ public class WallCollision : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
         if (col.collider.tag == "RBC") {
-            
+            Destroy(col.collider.gameObject);
+        }
+        else if (col.collider.tag == "Door") {
+            Destroy(col.collider.gameObject);
         }
         else if (col.collider.tag == "Despawn")
         {
@@ -22,30 +25,4 @@ public class WallCollision : MonoBehaviour
             }
         }
     }
-    //public class triggerChangeMaterial : MonoBehaviour
-    //{
-
-    //    public Material baseMaterial;
-    //    public Material fadeMaterial;
-
-    //    void OnTriggerEnter(Collider other)
-    //    {
-    //        Debug.Log("Player has entered the trigger");
-
-    //        if (other.gameObject.tag == "Player")
-    //        {
-    //            GetComponent<Renderer>().material = fadeMaterial;
-    //        }
-    //    }
-
-    //    void OnTriggerExit(Collider other)
-    //    {
-    //        Debug.Log("Player has exited the trigger");
-
-    //        if (other.gameObject.tag == "Player")
-    //        {
-    //            GetComponent<Renderer>().material = baseMaterial;
-    //        }
-    //    }
-    //}
 }
