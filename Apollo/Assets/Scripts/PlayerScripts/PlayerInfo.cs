@@ -4,4 +4,5 @@ using TMPro;
 public class PlayerInfo : MonoBehaviour
 {
     public int keyCount = 0;
+    public int pieceCount = 0;
 }

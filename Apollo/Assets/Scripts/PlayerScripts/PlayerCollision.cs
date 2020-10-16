@@ -37,5 +37,12 @@ public class PlayerCollision : MonoBehaviour
             timerPanel.GetComponent<Timer>().timeRemaining += 15;
             Destroy(col.collider.gameObject);
         }
+        else if (col.collider.tag == "piece") {
+	    this.gameObject.GetComponent<PlayerInfo>().pieceCount++;
+            Destroy(col.collider.gameObject);
+            if (this.gameObject.GetComponent<PlayerInfo>().pieceCount == 4){
+	            Debug.Log("End level");
+            }
+        }
     }
 }
