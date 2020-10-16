@@ -14,18 +14,19 @@ public class PlayerCollision : MonoBehaviour
             this.gameObject.GetComponent<PlayerInfo>().keyCount++;
             this.gameObject.GetComponent<ApolloAnalytics>().keyCollected();
             keyPanel.gameObject.SetActive(true);
+            this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
         else if (col.collider.tag == "Door" && gameObject.GetComponent<PlayerInfo>().keyCount > 0) {
             // this.gameObject.GetComponent<ApolloAnalytics>().doorsPassed();
             this.gameObject.GetComponent<PlayerInfo>().keyCount--;
             if (this.gameObject.GetComponent<PlayerInfo>().keyCount == 0) {
                 keyPanel.gameObject.SetActive(false);
+                this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
             }
-            Manager.GetComponent<Level1Objects>().numFatsLeft--;
+            if (Manager.GetComponent<Level1Objects>() != null) {
+                Manager.GetComponent<Level1Objects>().numFatsLeft--;
+            }
             Destroy(col.collider.gameObject);
-        }
-        else if (col.collider.tag == "Door") {
-            //Debug.Log("colliding with no key");
         }
         else if (col.collider.tag == "Transparent") {
             Physics.IgnoreCollision(GetComponent<Collider>(), col.collider);

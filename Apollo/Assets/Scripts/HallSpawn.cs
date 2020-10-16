@@ -6,11 +6,15 @@ public class HallSpawn : MonoBehaviour
 {
     public GameObject spawn;
     public GameObject spawnPoint;
+    public GameObject rbc;
+    public Transform[] rbcPoints;
+    public GameObject[] fats;
+    public Transform[] fatPoints;
     public bool stopSpawning = false;
     public float spawnTime;
     public float spawnDelay = 5.0f;
     public bool startSpawning = false;
-    // Start is called before the first frame update
+    public int currFat = 0;
 
     public void spawnObj() {
         GameObject obj = Instantiate(spawn) as GameObject;
@@ -20,17 +24,26 @@ public class HallSpawn : MonoBehaviour
         }
     }
 
-    IEnumerator spawnCR() {
-        while (startSpawning) {
-            yield return new WaitForSeconds(spawnDelay);
-            if (stopSpawning) break;
-            //spawnEnemy();
+    public void spawnRBC() {
+        GameObject obj = Instantiate(rbc) as GameObject;
+        obj.transform.position = rbcPoints[Random.Range(0, rbcPoints.Length)].position;
+        if (stopSpawning) {
+            CancelInvoke("spawnRBC");
         }
+    }
+    public void spawnFat() {
+        GameObject obj = Instantiate(fats[currFat]) as GameObject;
+        obj.transform.position = fatPoints[currFat].position;
+        if (stopSpawning) {
+            CancelInvoke("spawnFat");
+        }
+        currFat = Random.Range(0, fatPoints.Length);
     }
 
     void Start()
     {
-        InvokeRepeating("spawnObj", spawnTime, spawnDelay);
-        //StartCoroutine(spawnCR());
+        //InvokeRepeating("spawnObj", spawnTime, spawnDelay);
+        InvokeRepeating("spawnRBC", spawnTime, spawnDelay);
+        InvokeRepeating("spawnFat", spawnTime, spawnDelay);
     }
 }
