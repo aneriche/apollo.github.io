@@ -6,6 +6,7 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField] private Image keyImage;
     [SerializeField] private GameObject keyPanel;
     [SerializeField] private GameObject timerPanel;
+    [SerializeField] private GameObject Manager;
 
     void OnCollisionEnter (Collision col) {
         if (col.collider.tag == "Key") {
@@ -20,6 +21,7 @@ public class PlayerCollision : MonoBehaviour
             if (this.gameObject.GetComponent<PlayerInfo>().keyCount == 0) {
                 keyPanel.gameObject.SetActive(false);
             }
+            Manager.GetComponent<Level1Objects>().numFatsLeft--;
             Destroy(col.collider.gameObject);
         }
         else if (col.collider.tag == "Door") {

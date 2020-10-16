@@ -6,6 +6,6 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public void changeScene(string scene) {
-        SceneManager.LoadScene("TDLevel1");
+        SceneManager.LoadScene(scene);
     }
 }
