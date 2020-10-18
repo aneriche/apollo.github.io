@@ -17,7 +17,7 @@ public class PlayerCollision : MonoBehaviour
             this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
         else if (col.collider.tag == "Door" && gameObject.GetComponent<PlayerInfo>().keyCount > 0) {
-            // this.gameObject.GetComponent<ApolloAnalytics>().doorsPassed();
+            this.gameObject.GetComponent<ApolloAnalytics>().doorsPassed();
             this.gameObject.GetComponent<PlayerInfo>().keyCount--;
             if (this.gameObject.GetComponent<PlayerInfo>().keyCount == 0) {
                 keyPanel.gameObject.SetActive(false);
@@ -28,6 +28,9 @@ public class PlayerCollision : MonoBehaviour
             }
             Destroy(col.collider.gameObject);
         }
+        else if(col.collider.tag == "Door" && gameObject.GetComponent<PlayerInfo>().keyCount == 0) {
+            this.gameObject.GetComponent<ApolloAnalytics>().doorCollisionsWithoutKeys();
+        }
         else if (col.collider.tag == "Transparent") {
             Physics.IgnoreCollision(GetComponent<Collider>(), col.collider);
             //Debug.Log("transparent");
@@ -36,7 +39,7 @@ public class PlayerCollision : MonoBehaviour
             Physics.IgnoreCollision(GetComponent<Collider>(), col.collider);
         }
         else if (col.collider.tag == "Time") {
-            gameObject.GetComponent<ApolloAnalytics>().powerUps("Time");
+            gameObject.GetComponent<ApolloAnalytics>().timePowerUps();
             timerPanel.GetComponent<Timer>().timeRemaining += 15;
             Destroy(col.collider.gameObject);
         }
