@@ -13,11 +13,13 @@ public class Level2Objects : MonoBehaviour
     [SerializeField] private GameObject successObj;
     [SerializeField] private GameObject player;
     public Transform finish;
+    public bool resultSentToAnalytics = false;
 
     public TMP_Text textObject;
     
     void Start()
     {
+        this.gameObject.GetComponent<ApolloAnalytics>().setLevel(2);
         numFatsLeft = 4;
     }
 
@@ -28,9 +30,18 @@ public class Level2Objects : MonoBehaviour
         if (dist < 0.5 && TimerPanel.GetComponent<Timer>().timeRemaining > 0) {
             successObj.SetActive(true);
             TimerPanel.GetComponent<Timer>().stopTime = true;
+                 if(!resultSentToAnalytics) {
+                Debug.Log("won!!");
+                this.gameObject.GetComponent<ApolloAnalytics>().levelWin(1);
+                resultSentToAnalytics = true;
+            }
         }
         else if (TimerPanel.GetComponent<Timer>().timeRemaining < 0.01) {
             failObj.SetActive(true);
+              if(!resultSentToAnalytics) {
+                this.gameObject.GetComponent<ApolloAnalytics>().levelLose(1);
+                resultSentToAnalytics = true;
+            }
         }
     }
 

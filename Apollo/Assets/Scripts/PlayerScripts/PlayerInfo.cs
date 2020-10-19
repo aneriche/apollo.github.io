@@ -5,4 +5,5 @@ public class PlayerInfo : MonoBehaviour
 {
     public int keyCount = 0;
     public int pillCount = 0;
+    public int pieceCount = 0;
 }
