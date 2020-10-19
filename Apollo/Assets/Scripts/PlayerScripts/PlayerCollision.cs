@@ -7,6 +7,7 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField] private GameObject keyPanel;
     [SerializeField] private GameObject timerPanel;
     [SerializeField] private GameObject Manager;
+    [SerializeField] private GameObject pillPanel;
 
     void OnCollisionEnter (Collision col) {
         if (col.collider.tag == "Key") {
@@ -43,8 +44,13 @@ public class PlayerCollision : MonoBehaviour
             timerPanel.GetComponent<Timer>().timeRemaining += 15;
             Destroy(col.collider.gameObject);
         }
+        else if (col.collider.tag == "pill") {
+            Destroy(col.collider.gameObject);
+            this.gameObject.GetComponent<PlayerInfo>().pillCount++;
+            pillPanel.gameObject.SetActive(true);
+        }
         else if (col.collider.tag == "piece") {
-	    this.gameObject.GetComponent<PlayerInfo>().pieceCount++;
+	          this.gameObject.GetComponent<PlayerInfo>().pieceCount++;
             Destroy(col.collider.gameObject);
             if (this.gameObject.GetComponent<PlayerInfo>().pieceCount == 4){
 	            Debug.Log("End level");
