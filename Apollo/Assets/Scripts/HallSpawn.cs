@@ -33,11 +33,11 @@ public class HallSpawn : MonoBehaviour
     }
     public void spawnFat() {
         GameObject obj = Instantiate(fats[currFat]) as GameObject;
-        obj.transform.position = fatPoints[currFat].position;
+        obj.transform.position = fatPoints[0].position;
         if (stopSpawning) {
             CancelInvoke("spawnFat");
         }
-        currFat = Random.Range(0, fatPoints.Length);
+        currFat = Random.Range(0, fats.Length);
     }
 
     void Start()

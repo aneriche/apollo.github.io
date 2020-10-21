@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class WallCollision : MonoBehaviour
 {
+    void OnTriggerEnter(Collider col) {
+        Destroy(col.gameObject);
+    }
     // Start is called before the first frame update
     void OnCollisionEnter(Collision col)
     {
