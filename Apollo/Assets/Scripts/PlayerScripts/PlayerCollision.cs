@@ -9,6 +9,23 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField] private GameObject Manager;
     [SerializeField] private GameObject pillPanel;
 
+
+    // onTrigger used in level2 along with collision
+    void OnTriggerEnter(Collider col) {
+        if (this.gameObject.GetComponent<PlayerInfo>().keyCount > 0) {
+            this.gameObject.GetComponent<ApolloAnalytics>().doorsPassed();
+            this.gameObject.GetComponent<PlayerInfo>().keyCount--;
+            if (this.gameObject.GetComponent<PlayerInfo>().keyCount == 0) {
+                keyPanel.gameObject.SetActive(false);
+                this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            }
+            Destroy(col.GetComponent<Collider>().gameObject);
+        }
+        else if (this.gameObject.GetComponent<PlayerInfo>().keyCount == 0) {
+            this.gameObject.GetComponent<ApolloAnalytics>().doorCollisionsWithoutKeys();
+        }
+    }
+
     void OnCollisionEnter (Collision col) {
         if (col.collider.tag == "Key") {
             Destroy(col.collider.gameObject);
@@ -17,20 +34,22 @@ public class PlayerCollision : MonoBehaviour
             keyPanel.gameObject.SetActive(true);
             this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
-        else if (col.collider.tag == "Door" && gameObject.GetComponent<PlayerInfo>().keyCount > 0) {
-            this.gameObject.GetComponent<ApolloAnalytics>().doorsPassed();
-            this.gameObject.GetComponent<PlayerInfo>().keyCount--;
-            if (this.gameObject.GetComponent<PlayerInfo>().keyCount == 0) {
-                keyPanel.gameObject.SetActive(false);
-                this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        else if (col.collider.tag == "Door") {
+            if (this.gameObject.GetComponent<PlayerInfo>().keyCount > 0) {
+                this.gameObject.GetComponent<ApolloAnalytics>().doorsPassed();
+                this.gameObject.GetComponent<PlayerInfo>().keyCount--;
+                if (this.gameObject.GetComponent<PlayerInfo>().keyCount == 0) {
+                    keyPanel.gameObject.SetActive(false);
+                    this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                }
+                if (Manager.GetComponent<Level1Objects>() != null) {
+                    Manager.GetComponent<Level1Objects>().numFatsLeft--;
+                }
+                Destroy(col.collider.gameObject);
             }
-            if (Manager.GetComponent<Level1Objects>() != null) {
-                Manager.GetComponent<Level1Objects>().numFatsLeft--;
+            else if (this.gameObject.GetComponent<PlayerInfo>().keyCount == 0) {
+                this.gameObject.GetComponent<ApolloAnalytics>().doorCollisionsWithoutKeys();
             }
-            Destroy(col.collider.gameObject);
-        }
-        else if(col.collider.tag == "Door" && gameObject.GetComponent<PlayerInfo>().keyCount == 0) {
-            this.gameObject.GetComponent<ApolloAnalytics>().doorCollisionsWithoutKeys();
         }
         else if (col.collider.tag == "Transparent") {
             Physics.IgnoreCollision(GetComponent<Collider>(), col.collider);

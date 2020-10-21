@@ -33,6 +33,6 @@ public class RBCMove1Axis : MonoBehaviour
     }
 
     void Update() { 
-        transform.position += new Vector3(0,0,Time.deltaTime*-6);
+        transform.position += new Vector3(0,0,speed * Time.deltaTime*-6);
     }  
 }

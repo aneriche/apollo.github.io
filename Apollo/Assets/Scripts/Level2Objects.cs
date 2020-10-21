@@ -25,12 +25,12 @@ public class Level2Objects : MonoBehaviour
 
     void Update()
     {
-        float dist = Vector3.Distance(player.gameObject.transform.position, finish.position);
+        float dist = Mathf.Abs(player.gameObject.transform.position.z - finish.position.z);
         textObject.text = dist + "m";
         if (dist < 0.5 && TimerPanel.GetComponent<Timer>().timeRemaining > 0) {
             successObj.SetActive(true);
             TimerPanel.GetComponent<Timer>().stopTime = true;
-                 if(!resultSentToAnalytics) {
+            if(!resultSentToAnalytics) {
                 Debug.Log("won!!");
                 this.gameObject.GetComponent<ApolloAnalytics>().levelWin(1);
                 resultSentToAnalytics = true;
@@ -38,7 +38,7 @@ public class Level2Objects : MonoBehaviour
         }
         else if (TimerPanel.GetComponent<Timer>().timeRemaining < 0.01) {
             failObj.SetActive(true);
-              if(!resultSentToAnalytics) {
+            if(!resultSentToAnalytics) {
                 this.gameObject.GetComponent<ApolloAnalytics>().levelLose(1);
                 resultSentToAnalytics = true;
             }
