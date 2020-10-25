@@ -9,6 +9,7 @@ public class RedBloodCell : MonoBehaviour
     private int current;  
     public bool dontMove = false;
     public GameObject fat;
+    public ParticleSystem system;
     void Start() {
     }  
     
@@ -51,11 +52,17 @@ public class RedBloodCell : MonoBehaviour
             {  
                 Vector3 pos = Vector3.MoveTowards(transform.position, target[current].position, speed * Time.deltaTime);  
                 GetComponent<Rigidbody>().MovePosition(pos);  
+                if (system != null) {
+                    system.Play(true);
+                }
             } 
             else current = (current + 1) % target.Length;  
         }
         else {
             GetComponent<Rigidbody>().velocity = Vector3.zero;
+            if (system != null) {
+                system.Pause(true);
+            }
         }
     }  
 }
