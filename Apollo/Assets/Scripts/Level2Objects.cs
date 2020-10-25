@@ -32,14 +32,14 @@ public class Level2Objects : MonoBehaviour
             TimerPanel.GetComponent<Timer>().stopTime = true;
             if(!resultSentToAnalytics) {
                 Debug.Log("won!!");
-                this.gameObject.GetComponent<ApolloAnalytics>().levelWin(1);
+                this.gameObject.GetComponent<ApolloAnalytics>().levelWin(2);
                 resultSentToAnalytics = true;
             }
         }
         else if (TimerPanel.GetComponent<Timer>().timeRemaining < 0.01) {
             failObj.SetActive(true);
             if(!resultSentToAnalytics) {
-                this.gameObject.GetComponent<ApolloAnalytics>().levelLose(1);
+                this.gameObject.GetComponent<ApolloAnalytics>().levelLose(2);
                 resultSentToAnalytics = true;
             }
         }
