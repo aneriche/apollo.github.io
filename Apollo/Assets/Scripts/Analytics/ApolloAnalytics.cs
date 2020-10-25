@@ -19,6 +19,9 @@ public class ApolloAnalytics : MonoBehaviour
     static int doorsCrossed = 0;
 
     int level = 1;
+    // int level = 2;
+    // int level = 3;
+
 
     //time passed since start of the level
     float time = 0;
@@ -89,9 +92,13 @@ public class ApolloAnalytics : MonoBehaviour
     }
 
     public void powerUpsSpawned(){
-        if(level == 1){
+        if(level == 1 || level == 2){
             totalPowerUpsSpawned = 2;
         }
+    }
+
+    public void greenball(){
+
     }
 
     public void levelWin(int levelNum){
