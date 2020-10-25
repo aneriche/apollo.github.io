@@ -215,7 +215,6 @@ GameObject:
   - component: {fileID: 945785785}
   - component: {fileID: 945785789}
   - component: {fileID: 945785788}
-  - component: {fileID: 945785787}
   - component: {fileID: 945785786}
   m_Layer: 5
   m_Name: InnerCircle
@@ -258,18 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer_duration: 60
   fillImage: {fileID: 1222097157}
---- !u!114 &945785787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 945785784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84e83454f527b6548aae1a5c07a6e015, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  TimerPanel: {fileID: 0}
 --- !u!114 &945785788
 MonoBehaviour:
   m_ObjectHideFlags: 0

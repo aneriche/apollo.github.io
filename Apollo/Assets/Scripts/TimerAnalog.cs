@@ -7,13 +7,24 @@ public class TimerAnalog : MonoBehaviour
 {
     public float timer_duration; //time duration in seconds
     public Image fillImage;
+    public GameObject TimerPanel;
+    private IEnumerator co;
 
     // Start is called before the first frame update
     void Start()
     {
         fillImage.fillAmount = 1f;
-        StartCoroutine(Timer(timer_duration));
+        timer_duration = TimerPanel.GetComponent<Timer>().timeRemaining;
+        co = Timer(timer_duration);
+        StartCoroutine(co);
 
+    }
+
+    void Update() {
+        bool stop = TimerPanel.GetComponent<Timer>().stopTime;
+        if (stop) {
+            StopCoroutine(co);
+        }
     }
 
     // Update is called once per frame
@@ -30,6 +41,5 @@ public class TimerAnalog : MonoBehaviour
             fillImage.fillAmount = value;
             yield return null;
         }
-
     }
 }
