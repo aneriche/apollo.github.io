@@ -33,13 +33,11 @@ public class ApolloAnalytics : MonoBehaviour
     void Start()
     {
         newLevel();
-
-        //initializePowerUpDictionary();
     }
 
     public void setLevel(int levelNum) {
         level = levelNum;
-        Debug.Log(level);
+        // Debug.Log(level);
         newLevel();
     }
     public void initializePowerUpDictionary(){
@@ -47,7 +45,7 @@ public class ApolloAnalytics : MonoBehaviour
     }
 
     public void doorCollisionsWithoutKeys(){
-                doorsCollidedWithoutKey++;
+        doorsCollidedWithoutKey++;
         doorCollisionsWithoutKeysTime["collision" + doorsCollidedWithoutKey] = time;
         Debug.Log(doorCollisionsWithoutKeysTime["collision" + doorsCollidedWithoutKey] + " doors collided");
 
@@ -70,8 +68,8 @@ public class ApolloAnalytics : MonoBehaviour
     public void keyCollected(){
         keysCollected = keysCollected + 1;
         keyCollectionTime["key" + keysCollected] = time;
-        Debug.Log(keyCollectionTime["key" + keysCollected]);
-        Debug.Log("keysSoFar " + keysCollected);
+        // Debug.Log(keyCollectionTime["key" + keysCollected]);
+        // Debug.Log("keysSoFar " + keysCollected);
     }
 
     public void doorsPassed(){
@@ -87,7 +85,7 @@ public class ApolloAnalytics : MonoBehaviour
             float timeBetweenTwoKeys = timeForCurrentKey - lastKeyTime;
             lastKeyTime = timeForCurrentKey;
             keyToKeyTime["key" + i] = timeBetweenTwoKeys;
-            Debug.Log("key" + i + " " + keyToKeyTime["key" + i]); 
+            // Debug.Log("key" + i + " " + keyToKeyTime["key" + i]); 
         }
     }
     
@@ -122,30 +120,30 @@ public class ApolloAnalytics : MonoBehaviour
             {"TotalDoorsCollidedWithoutKeys", doorsCollidedWithoutKey}
         });
         
-        Debug.Log("key collection times");
-        foreach(KeyValuePair<string, object> entry in keyCollectionTime)
-        {
-            Debug.Log(entry.Key + " " + entry.Value);
-        }
+        // Debug.Log("key collection times");
+        // foreach(KeyValuePair<string, object> entry in keyCollectionTime)
+        // {
+        //     Debug.Log(entry.Key + " " + entry.Value);
+        // }
 
-        Debug.Log("door to door times");
+        // Debug.Log("door to door times");
 
-          foreach(KeyValuePair<string, object> entry in doorToDoorTimings)
-        {
-            Debug.Log(entry.Key + " " + entry.Value);
-        }
-          foreach(KeyValuePair<string, object> entry in doorCollisionsWithoutKeysTime)
-        {
-            Debug.Log(entry.Key + " " + entry.Value);
-        }
+        //   foreach(KeyValuePair<string, object> entry in doorToDoorTimings)
+        // {
+        //     Debug.Log(entry.Key + " " + entry.Value);
+        // }
+        //   foreach(KeyValuePair<string, object> entry in doorCollisionsWithoutKeysTime)
+        // {
+        //     Debug.Log(entry.Key + " " + entry.Value);
+        // }
         AnalyticsResult analyticsResult1 =  Analytics.CustomEvent("LevelWin" + levelNum + "keyPowerUpCollectionTime", keyCollectionTime);
         AnalyticsResult analyticsResult2 = Analytics.CustomEvent("LevelWin" + levelNum + "FatBurningTime", doorToDoorTimings);
         AnalyticsResult analyticsResult3 = Analytics.CustomEvent("LevelWin" + levelNum + "DoorCollisionsWithoutKeysTime", doorCollisionsWithoutKeysTime);
 
 
-        Debug.Log("analyticsResult1 " + analyticsResult1);
-        Debug.Log("analyticsResult2 " + analyticsResult2);
-        Debug.Log("analyticsResult3 " + analyticsResult3);
+        // Debug.Log("analyticsResult1 " + analyticsResult1);
+        // Debug.Log("analyticsResult2 " + analyticsResult2);
+        // Debug.Log("analyticsResult3 " + analyticsResult3);
 
     }
 
@@ -160,33 +158,33 @@ public class ApolloAnalytics : MonoBehaviour
             {"TotalDoorsCrossed", doorsCrossed}
         });
 
-        Debug.Log("key collection times");
-        foreach(KeyValuePair<string, object> entry in keyCollectionTime)
-        {
-            Debug.Log(entry.Key + " " + entry.Value);
-        }
+        // Debug.Log("key collection times");
+        // foreach(KeyValuePair<string, object> entry in keyCollectionTime)
+        // {
+        //     Debug.Log(entry.Key + " " + entry.Value);
+        // }
 
-        Debug.Log("door to door times");
+        // Debug.Log("door to door times");
 
-          foreach(KeyValuePair<string, object> entry in doorToDoorTimings)
-        {
-            Debug.Log(entry.Key + " " + entry.Value);
-        }
-          foreach(KeyValuePair<string, object> entry in doorCollisionsWithoutKeysTime)
-        {
-            Debug.Log(entry.Key + " " + entry.Value);
-        }
+        //   foreach(KeyValuePair<string, object> entry in doorToDoorTimings)
+        // {
+        //     Debug.Log(entry.Key + " " + entry.Value);
+        // }
+        //   foreach(KeyValuePair<string, object> entry in doorCollisionsWithoutKeysTime)
+        // {
+        //     Debug.Log(entry.Key + " " + entry.Value);
+        // }
         
         AnalyticsResult analyticsResult1 =  Analytics.CustomEvent("LevelLose" + levelNum + "keyPowerUpCollectionTime", keyCollectionTime);
         AnalyticsResult analyticsResult2 = Analytics.CustomEvent("LevelLose" + levelNum + "FatBurningTime", doorToDoorTimings);
         AnalyticsResult analyticsResult3 = Analytics.CustomEvent("LevelLose" + levelNum + "DoorCollisionsWithoutKeysTime", doorCollisionsWithoutKeysTime);
 
 
-        Debug.Log("analyticsResult1 " + analyticsResult1);
-        Debug.Log("analyticsResult2 " + analyticsResult2);
-        Debug.Log("analyticsResult3 " + analyticsResult3);
+        // Debug.Log("analyticsResult1 " + analyticsResult1);
+        // Debug.Log("analyticsResult2 " + analyticsResult2);
+        // Debug.Log("analyticsResult3 " + analyticsResult3);
 
-        Debug.Log("analyticsResult4 " + analyticsResult4);
+        // Debug.Log("analyticsResult4 " + analyticsResult4);
     }
 
     // Update is called once per frame
