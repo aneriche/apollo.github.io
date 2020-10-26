@@ -110,7 +110,7 @@ public class ApolloAnalytics : MonoBehaviour
         // Debug.Log("Level " + levelNum);
         // Debug.Log("Time taken " + timeTaken);
         // Debug.Log("TotalTimePowerUpsSpawned " + totalPowerUpsSpawned);
-        // Debug.Log("TotalTimePowerUpsCollected " + timePowerUpsCollected);
+         Debug.Log("mTotalTimePowerUpsCollected " + timePowerUpsCollected);
         Analytics.CustomEvent("mLevelWin"+levelNum);
          Analytics.CustomEvent("mLevelWin" + levelNum, new Dictionary<string,object>{
             {"mTimeTaken", timeTaken},
