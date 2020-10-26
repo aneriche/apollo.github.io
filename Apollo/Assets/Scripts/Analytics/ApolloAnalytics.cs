@@ -47,7 +47,7 @@ public class ApolloAnalytics : MonoBehaviour
     public void doorCollisionsWithoutKeys(){
         doorsCollidedWithoutKey++;
         doorCollisionsWithoutKeysTime["collision" + doorsCollidedWithoutKey] = time;
-        Debug.Log(doorCollisionsWithoutKeysTime["collision" + doorsCollidedWithoutKey] + " doors collided");
+       // Debug.Log(doorCollisionsWithoutKeysTime["collision" + doorsCollidedWithoutKey] + " doors collided");
 
     }
 
@@ -111,15 +111,14 @@ public class ApolloAnalytics : MonoBehaviour
         // Debug.Log("Time taken " + timeTaken);
         // Debug.Log("TotalTimePowerUpsSpawned " + totalPowerUpsSpawned);
         // Debug.Log("TotalTimePowerUpsCollected " + timePowerUpsCollected);
-        Analytics.CustomEvent("LevelWin"+levelNum);
-         Analytics.CustomEvent("LevelWin" + levelNum, new Dictionary<string,object>{
-            {"TimeTaken", timeTaken},
-            {"TotalPowerUpsSpawned", totalPowerUpsSpawned},
-            {"TotalTimePowerUpsCollected", timePowerUpsCollected},
-            {"TotalFatBurnCollected", keysCollected},
-            {"TotalDoorsCollidedWithoutKeys", doorsCollidedWithoutKey}
+        Analytics.CustomEvent("mLevelWin"+levelNum);
+         Analytics.CustomEvent("mLevelWin" + levelNum, new Dictionary<string,object>{
+            {"mTimeTaken", timeTaken},
+            {"mTotalPowerUpsSpawned", totalPowerUpsSpawned},
+            {"mTotalTimePowerUpsCollected", timePowerUpsCollected},
+            {"mTotalFatBurnCollected", keysCollected},
+            {"mTotalDoorsCollidedWithoutKeys", doorsCollidedWithoutKey}
         });
-        
         // Debug.Log("key collection times");
         // foreach(KeyValuePair<string, object> entry in keyCollectionTime)
         // {
@@ -136,9 +135,9 @@ public class ApolloAnalytics : MonoBehaviour
         // {
         //     Debug.Log(entry.Key + " " + entry.Value);
         // }
-        AnalyticsResult analyticsResult1 =  Analytics.CustomEvent("LevelWin" + levelNum + "keyPowerUpCollectionTime", keyCollectionTime);
-        AnalyticsResult analyticsResult2 = Analytics.CustomEvent("LevelWin" + levelNum + "FatBurningTime", doorToDoorTimings);
-        AnalyticsResult analyticsResult3 = Analytics.CustomEvent("LevelWin" + levelNum + "DoorCollisionsWithoutKeysTime", doorCollisionsWithoutKeysTime);
+        AnalyticsResult analyticsResult1 =  Analytics.CustomEvent("mLevelWin" + levelNum + "keyPowerUpCollectionTime", keyCollectionTime);
+        AnalyticsResult analyticsResult2 = Analytics.CustomEvent("mLevelWin" + levelNum + "FatBurningTime", doorToDoorTimings);
+        AnalyticsResult analyticsResult3 = Analytics.CustomEvent("mLevelWin" + levelNum + "DoorCollisionsWithoutKeysTime", doorCollisionsWithoutKeysTime);
 
 
         // Debug.Log("analyticsResult1 " + analyticsResult1);
@@ -149,13 +148,13 @@ public class ApolloAnalytics : MonoBehaviour
 
     public void levelLose(int levelNum){
         powerUpsSpawned();
-        Analytics.CustomEvent("LevelLose" + levelNum);
-         AnalyticsResult analyticsResult4 = Analytics.CustomEvent("LevelLose" + levelNum, new Dictionary<string,object>{
-            {"TotalPowerUpsSpawned", totalPowerUpsSpawned},
-            {"TotalTimePowerUpsCollected", timePowerUpsCollected},
-            {"TotalFatBurnCollected", keysCollected},
-            {"TotalDoorsCollidedWithoutKeys", doorsCollidedWithoutKey},
-            {"TotalDoorsCrossed", doorsCrossed}
+        Analytics.CustomEvent("mLevelLose" + levelNum);
+         AnalyticsResult analyticsResult4 = Analytics.CustomEvent("mLevelLose" + levelNum, new Dictionary<string,object>{
+            {"mTotalPowerUpsSpawned", totalPowerUpsSpawned},
+            {"mTotalTimePowerUpsCollected", timePowerUpsCollected},
+            {"mTotalFatBurnCollected", keysCollected},
+            {"mTotalDoorsCollidedWithoutKeys", doorsCollidedWithoutKey},
+            {"mTotalDoorsCrossed", doorsCrossed}
         });
 
         // Debug.Log("key collection times");
@@ -175,9 +174,9 @@ public class ApolloAnalytics : MonoBehaviour
         //     Debug.Log(entry.Key + " " + entry.Value);
         // }
         
-        AnalyticsResult analyticsResult1 =  Analytics.CustomEvent("LevelLose" + levelNum + "keyPowerUpCollectionTime", keyCollectionTime);
-        AnalyticsResult analyticsResult2 = Analytics.CustomEvent("LevelLose" + levelNum + "FatBurningTime", doorToDoorTimings);
-        AnalyticsResult analyticsResult3 = Analytics.CustomEvent("LevelLose" + levelNum + "DoorCollisionsWithoutKeysTime", doorCollisionsWithoutKeysTime);
+        AnalyticsResult analyticsResult1 =  Analytics.CustomEvent("mLevelLose" + levelNum + "keyPowerUpCollectionTime", keyCollectionTime);
+        AnalyticsResult analyticsResult2 = Analytics.CustomEvent("mLevelLose" + levelNum + "FatBurningTime", doorToDoorTimings);
+        AnalyticsResult analyticsResult3 = Analytics.CustomEvent("mLevelLose" + levelNum + "DoorCollisionsWithoutKeysTime", doorCollisionsWithoutKeysTime);
 
 
         // Debug.Log("analyticsResult1 " + analyticsResult1);
