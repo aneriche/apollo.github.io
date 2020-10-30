@@ -23,24 +23,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerVelocity.y = 0f;
         }
-        /*Vector3 parentMove = Vector3.zero;
-        if (!(transform.parent is null))
-        {
-            if(hasParent == false)
-            {
-                hasParent = true;
-                
-            }
-            else
-            {
-                parentMove = transform.parent.position - lastParentPosition;
-            }
-            lastParentPosition = transform.parent.position;
-        }
-        else
-        {
-            hasParent = false;
-        }*/
+
         Vector3 move = new Vector3(joystick.Horizontal + Input.GetAxis("Horizontal"), 0, joystick.Vertical + Input.GetAxis("Vertical"));
         // Changes the height position of the player..
         /*if (Input.GetButtonDown("Jump") && controller.isGrounded)
@@ -53,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
         {
             gameObject.transform.forward = move;
             
-
         }
         
     }
