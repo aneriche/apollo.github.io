@@ -65,8 +65,8 @@ public class PlayerCollision : MonoBehaviour
         }
         else if (col.collider.tag == "pill") {
             Destroy(col.collider.gameObject);
-            this.gameObject.GetComponent<PlayerInfo>().pillCount++;
-            pillPanel.gameObject.SetActive(true);
+            this.gameObject.GetComponent<PlayerInfo>().pillCount--;
+            //pillPanel.gameObject.SetActive(true);
         }
         else if (col.collider.tag == "piece") {
 	          this.gameObject.GetComponent<PlayerInfo>().pieceCount++;
