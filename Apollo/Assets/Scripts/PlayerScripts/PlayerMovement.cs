@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public float playerSpeed = 1.0f;
     //private float jumpHeight = 1.0f;
     public Joystick joystick;
+    private bool hasParent;
+    private Vector3 lastParentPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +30,13 @@ public class PlayerMovement : MonoBehaviour
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity);
         }*/
-        controller.Move(move * Time.deltaTime * playerSpeed);
 
+        controller.Move(move * Time.deltaTime * playerSpeed);
         if (move != Vector3.zero) 
         {
             gameObject.transform.forward = move;
+            
         }
+        
     }
 }
