@@ -15,6 +15,8 @@ public class Level2Objects : MonoBehaviour
     public Transform finish;
     public bool resultSentToAnalytics = false;
 
+    public bool doOnce = true;
+
     public TMP_Text textObject;
     
     void Start()
@@ -30,6 +32,11 @@ public class Level2Objects : MonoBehaviour
         if (dist < 0.5 && TimerPanel.GetComponent<Timer>().timeRemaining > 0) {
             successObj.SetActive(true);
             TimerPanel.GetComponent<Timer>().stopTime = true;
+            if (doOnce) {
+                GameStatus.numLevelsComplete += 1;
+                GameStatus.inMenu = 1;
+                doOnce = false;
+            }
             if(!resultSentToAnalytics) {
                 Debug.Log("won!!");
                 this.gameObject.GetComponent<ApolloAnalytics>().levelWin(2);
@@ -38,6 +45,9 @@ public class Level2Objects : MonoBehaviour
         }
         else if (TimerPanel.GetComponent<Timer>().timeRemaining < 0.01) {
             failObj.SetActive(true);
+            if (doOnce) {
+                GameStatus.inMenu = 1;
+            }
             if(!resultSentToAnalytics) {
                 this.gameObject.GetComponent<ApolloAnalytics>().levelLose(2);
                 resultSentToAnalytics = true;
