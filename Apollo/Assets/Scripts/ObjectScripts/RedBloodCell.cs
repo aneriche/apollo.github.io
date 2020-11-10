@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RedBloodCell : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class RedBloodCell : MonoBehaviour
     public bool dontMove = false;
     public GameObject fat;
     public ParticleSystem system;
+    public string level;
+    public GameObject Player;
+    [SerializeField] private GameObject levelPanel;
+    [SerializeField] private GameObject closePanel;
+
     void Start() {
     }  
     
@@ -19,7 +25,15 @@ public class RedBloodCell : MonoBehaviour
             dontMove = true;
         }
         if (col.collider.tag == "Player") {
-            Physics.IgnoreCollision(GetComponent<Collider>(), col.collider);
+            //Physics.IgnoreCollision(GetComponent<Collider>(), col.collider);
+            GameStatus.playerPositionInMenuX = Player.transform.position.x;
+            GameStatus.playerPositionInMenuY = Player.transform.position.y;
+            GameStatus.playerPositionInMenuZ = Player.transform.position.z;
+            GameStatus.inMenu = 0;
+            GameStatus.leftGone = 1;
+            levelPanel.gameObject.SetActive(true);
+            closePanel.gameObject.SetActive(true);
+            //SceneManager.LoadScene(level);
         }
         if (col.collider.tag == "Transparent") {
             Destroy(this.gameObject);
@@ -27,27 +41,13 @@ public class RedBloodCell : MonoBehaviour
     }
 
     void OnCollisionExit(Collision col) {
-        //dontMove = false;
         if (col.collider.tag == "Door") {
-            //Debug.Log("false");
-            //dontMove = false;
+            //Debug.Log("false");a
         }
     }
 
     void Update() { 
-        /*if (!dontMove) {
-            if (transform.position != target[current].position) 
-            {  
-                Vector3 pos = Vector3.MoveTowards(transform.position, target[current].position, speed * Time.deltaTime);  
-                GetComponent<Rigidbody>().MovePosition(pos);  
-            } 
-            else current = (current + 1) % target.Length;  
-        }
-        else {
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
-        }*/
-
-        if (fat == null) {
+        if (fat == null && !dontMove) {
             if (transform.position != target[current].position) 
             {  
                 Vector3 pos = Vector3.MoveTowards(transform.position, target[current].position, speed * Time.deltaTime);  
