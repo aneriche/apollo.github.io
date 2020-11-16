@@ -9,15 +9,16 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField] private GameObject Manager;
     [SerializeField] private GameObject pillPanel;
 
-
     // onTrigger used in level2 along with collision
     void OnTriggerEnter(Collider col) {
         if (this.gameObject.GetComponent<PlayerInfo>().keyCount > 0) {
             this.gameObject.GetComponent<ApolloAnalytics>().doorsPassed();
             this.gameObject.GetComponent<PlayerInfo>().keyCount--;
+            this.gameObject.GetComponent<PlayerAbility>().fillPanel(this.gameObject.GetComponent<PlayerInfo>().keyCount);
             if (this.gameObject.GetComponent<PlayerInfo>().keyCount == 0) {
                 keyPanel.gameObject.SetActive(false);
                 this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                this.gameObject.GetComponent<PlayerAbility>().clearPanel();
             }
             Destroy(col.GetComponent<Collider>().gameObject);
         }
@@ -33,14 +34,22 @@ public class PlayerCollision : MonoBehaviour
             this.gameObject.GetComponent<ApolloAnalytics>().keyCollected();
             keyPanel.gameObject.SetActive(true);
             this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            this.gameObject.GetComponent<PlayerAbility>().fillPanel(this.gameObject.GetComponent<PlayerInfo>().keyCount);
+            if (this.gameObject.GetComponent<PlayerInfo>().keyCount % 2 == 0 && this.gameObject.GetComponent<PlayerInfo>().keyCount > 0) {
+                this.gameObject.GetComponent<PlayerAbility>().activateAbility();
+                this.gameObject.GetComponent<PlayerAbility>().clearPanel();
+            }
         }
         else if (col.collider.tag == "Door") {
             if (this.gameObject.GetComponent<PlayerInfo>().keyCount > 0) {
                 this.gameObject.GetComponent<ApolloAnalytics>().doorsPassed();
                 this.gameObject.GetComponent<PlayerInfo>().keyCount--;
+                this.gameObject.GetComponent<PlayerAbility>().fillPanel(this.gameObject.GetComponent<PlayerInfo>().keyCount);
+                Debug.Log("key down");
                 if (this.gameObject.GetComponent<PlayerInfo>().keyCount == 0) {
                     keyPanel.gameObject.SetActive(false);
                     this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                    this.gameObject.GetComponent<PlayerAbility>().clearPanel();
                 }
                 if (Manager.GetComponent<Level1Objects>() != null) {
                     Manager.GetComponent<Level1Objects>().numFatsLeft--;
@@ -69,11 +78,14 @@ public class PlayerCollision : MonoBehaviour
             //pillPanel.gameObject.SetActive(true);
         }
         else if (col.collider.tag == "piece") {
-	          this.gameObject.GetComponent<PlayerInfo>().pieceCount++;
+	        this.gameObject.GetComponent<PlayerInfo>().pieceCount++;
             Destroy(col.collider.gameObject);
             if (this.gameObject.GetComponent<PlayerInfo>().pieceCount == 4){
 	            Debug.Log("End level");
             }
+        }
+        else if (col.collider.tag == "forceField") {
+            Physics.IgnoreCollision(GetComponent<Collider>(), col.collider);
         }
     }
 }
