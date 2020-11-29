@@ -5,7 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    static string sceneName;
+    public Animator animator;
     public void changeScene(string scene) {
-        SceneManager.LoadScene(scene);
+        sceneName = scene;
+        animator.SetTrigger("FadeTrigger");
+        //OnFadeComplete(scene);
+    }
+    public void OnFadeComplete() {
+        SceneManager.LoadScene(sceneName);
     }
 }
