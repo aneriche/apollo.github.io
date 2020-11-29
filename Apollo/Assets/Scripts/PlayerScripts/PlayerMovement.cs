@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 lastParentPosition;
     public GameObject Player;
 
+    private bool doRotate = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void applyRotation() {
+        Player.transform.Rotate(Player.transform.right, -20f);
+    }
+
+    void still() {
+        Player.transform.Rotate(Player.transform.right, 20f);
+    }
+
     void FixedUpdate() {
         if (controller.isGrounded && playerVelocity.y < 0)
         {
@@ -32,10 +42,13 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = new Vector3(joystick.Horizontal + Input.GetAxis("Horizontal"), 0, joystick.Vertical + Input.GetAxis("Vertical"));
 
         controller.Move(move * Time.deltaTime * playerSpeed);
-        /*if (move != Vector3.zero) 
-        {
-            gameObject.transform.forward = move;
-            
+
+        transform.rotation = Quaternion.LookRotation(move);
+        /*if (move == Vector3.zero) {
+            still();
+        }
+        else {
+            applyRotation();
         }*/
         
     }
