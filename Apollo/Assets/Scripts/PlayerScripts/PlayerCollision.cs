@@ -87,5 +87,8 @@ public class PlayerCollision : MonoBehaviour
         else if (col.collider.tag == "forceField") {
             Physics.IgnoreCollision(GetComponent<Collider>(), col.collider);
         }
+        else if (col.collider.tag == "MenuPill") {
+            Physics.IgnoreCollision(GetComponent<Collider>(), col.collider);
+        }
     }
 }

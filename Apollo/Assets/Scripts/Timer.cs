@@ -31,15 +31,8 @@ public class Timer : MonoBehaviour
     {
         int timeInt = (int) timeRemaining;
         textObject.text = "" + timeInt;
-        /*timeToDisplay += 1;
-
-        float minutes = Mathf.FloorToInt(timeToDisplay / 60); 
-        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-
-        textObject.text = string.Format("{0:00}:{1:00}", minutes, seconds);*/
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!stopTime) {
