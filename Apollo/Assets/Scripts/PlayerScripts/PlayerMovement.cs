@@ -44,12 +44,6 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         transform.rotation = Quaternion.LookRotation(move);
-        /*if (move == Vector3.zero) {
-            still();
-        }
-        else {
-            applyRotation();
-        }*/
         
     }
 }

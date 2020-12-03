@@ -11,21 +11,15 @@ public class RedBloodCell : MonoBehaviour
     public bool dontMove = false;
     public GameObject fat;
     public ParticleSystem system;
-    public string level;
     public GameObject Player;
     [SerializeField] private GameObject levelPanel;
     [SerializeField] private GameObject closePanel;
-
-    void Start() {
-    }  
     
     void OnCollisionEnter(Collision col) {
         if (col.collider.tag == "Door") {
-            //Debug.Log("true");
             dontMove = true;
         }
         if (col.collider.tag == "Player") {
-            //Physics.IgnoreCollision(GetComponent<Collider>(), col.collider);
             GameStatus.playerPositionInMenuX = Player.transform.position.x;
             GameStatus.playerPositionInMenuY = Player.transform.position.y;
             GameStatus.playerPositionInMenuZ = Player.transform.position.z;
@@ -33,7 +27,7 @@ public class RedBloodCell : MonoBehaviour
             GameStatus.leftGone = 1;
             levelPanel.gameObject.SetActive(true);
             closePanel.gameObject.SetActive(true);
-            //SceneManager.LoadScene(level);
+            system.Play(true);
         }
         if (col.collider.tag == "Transparent") {
             Destroy(this.gameObject);
@@ -41,12 +35,19 @@ public class RedBloodCell : MonoBehaviour
     }
 
     void OnCollisionExit(Collision col) {
-        if (col.collider.tag == "Door") {
-            //Debug.Log("false");a
+        if (col.collider.tag == "Player") {
+            system.Stop(true);
+        }
+    }
+
+    void Start() {
+        if (system != null) {
+            system.Pause(true);
         }
     }
 
     void Update() { 
+
         if (fat == null && !dontMove) {
             if (transform.position != target[current].position) 
             {  
@@ -60,9 +61,6 @@ public class RedBloodCell : MonoBehaviour
         }
         else {
             GetComponent<Rigidbody>().velocity = Vector3.zero;
-            if (system != null) {
-                system.Pause(true);
-            }
         }
     }  
 }
