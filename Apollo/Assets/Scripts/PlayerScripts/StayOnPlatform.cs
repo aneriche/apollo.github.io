@@ -11,6 +11,7 @@ public class StayOnPlatform : MonoBehaviour
         {
             other.transform.parent = null;
             other.transform.parent = transform;
+            Debug.Log("onPlatform");
         }
     }
 

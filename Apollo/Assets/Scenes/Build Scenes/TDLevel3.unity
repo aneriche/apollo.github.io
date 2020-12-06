@@ -398,7 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerPanel: {fileID: 363470671}
   sinkSpeed: 0.05
-  sinkStartTime: 30
+  sinkStartTime: 1
 --- !u!1 &13428594
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerPanel: {fileID: 363470671}
   sinkSpeed: 0.05
-  sinkStartTime: 30
+  sinkStartTime: 1
 --- !u!1 &28315056
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,7 +806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerPanel: {fileID: 363470671}
   sinkSpeed: 0.05
-  sinkStartTime: 75
+  sinkStartTime: 1
 --- !u!1 &32395280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,7 +1924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerPanel: {fileID: 363470671}
   sinkSpeed: 0.05
-  sinkStartTime: 60
+  sinkStartTime: 1
 --- !u!1 &148835650
 GameObject:
   m_ObjectHideFlags: 0
@@ -2525,7 +2525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerPanel: {fileID: 363470671}
   sinkSpeed: 0.05
-  sinkStartTime: 30
+  sinkStartTime: 1
 --- !u!1 &190729838
 GameObject:
   m_ObjectHideFlags: 0
@@ -5356,7 +5356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerPanel: {fileID: 363470671}
   sinkSpeed: 0.05
-  sinkStartTime: 75
+  sinkStartTime: 1
 --- !u!4 &338890804 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013037581106, guid: bf960492e4c076c458d1ba649dc26577,
@@ -6221,7 +6221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerPanel: {fileID: 363470671}
   sinkSpeed: 0.05
-  sinkStartTime: 30
+  sinkStartTime: 1
 --- !u!1 &393480098
 GameObject:
   m_ObjectHideFlags: 0
@@ -6902,7 +6902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerPanel: {fileID: 363470671}
   sinkSpeed: 0.05
-  sinkStartTime: 60
+  sinkStartTime: 1
 --- !u!1001 &416853254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8455,7 +8455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerPanel: {fileID: 363470671}
   sinkSpeed: 0.05
-  sinkStartTime: 60
+  sinkStartTime: 1
 --- !u!1 &559153812
 GameObject:
   m_ObjectHideFlags: 0
@@ -15518,7 +15518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerPanel: {fileID: 363470671}
   sinkSpeed: 0.05
-  sinkStartTime: 75
+  sinkStartTime: 1
 --- !u!1 &998033479
 GameObject:
   m_ObjectHideFlags: 0
@@ -16754,7 +16754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerPanel: {fileID: 363470671}
   sinkSpeed: 0.05
-  sinkStartTime: 30
+  sinkStartTime: 1
 --- !u!1 &1088086942
 GameObject:
   m_ObjectHideFlags: 0
@@ -19785,7 +19785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerPanel: {fileID: 363470671}
   sinkSpeed: 0.05
-  sinkStartTime: 30
+  sinkStartTime: 1
 --- !u!1 &1245988932
 GameObject:
   m_ObjectHideFlags: 0
@@ -25291,7 +25291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerPanel: {fileID: 363470671}
   sinkSpeed: 0.05
-  sinkStartTime: 30
+  sinkStartTime: 1
 --- !u!1 &1657219872
 GameObject:
   m_ObjectHideFlags: 0
@@ -25940,7 +25940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerPanel: {fileID: 363470671}
   sinkSpeed: 0.05
-  sinkStartTime: 60
+  sinkStartTime: 1
 --- !u!1 &1730821718
 GameObject:
   m_ObjectHideFlags: 0
@@ -26430,7 +26430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerPanel: {fileID: 363470671}
   sinkSpeed: 0.05
-  sinkStartTime: 75
+  sinkStartTime: 1
 --- !u!4 &1753779700 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000014088061956, guid: a2a488e7caca6bd4280bf13b8e973858,
@@ -27468,7 +27468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerPanel: {fileID: 363470671}
   sinkSpeed: 0.05
-  sinkStartTime: 60
+  sinkStartTime: 1
 --- !u!1 &1848474184
 GameObject:
   m_ObjectHideFlags: 0
@@ -29040,7 +29040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerPanel: {fileID: 363470671}
   sinkSpeed: 0.05
-  sinkStartTime: 75
+  sinkStartTime: 1
 --- !u!1 &1955378242
 GameObject:
   m_ObjectHideFlags: 0
