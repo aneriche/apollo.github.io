@@ -22223,7 +22223,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-8640
+  m_Name: pb_Mesh-46598
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -24291,6 +24291,21 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1617254018}
+    - target: {fileID: 6023144231713848896, guid: 20b8228de10438c46b752965b59d59df,
+        type: 3}
+      propertyPath: deathPlane
+      value: 
+      objectReference: {fileID: 53664484}
+    - target: {fileID: 6023144231713848896, guid: 20b8228de10438c46b752965b59d59df,
+        type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 317324757}
+    - target: {fileID: 6023144231713848896, guid: 20b8228de10438c46b752965b59d59df,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1561101886}
     - target: {fileID: 6496558383741627444, guid: 20b8228de10438c46b752965b59d59df,
         type: 3}
       propertyPath: keyImage
@@ -30358,7 +30373,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-8638
+  m_Name: pb_Mesh-46596
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

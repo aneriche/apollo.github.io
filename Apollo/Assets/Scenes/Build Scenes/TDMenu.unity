@@ -4067,6 +4067,16 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 184763339}
+    - target: {fileID: 6023144231713848896, guid: 20b8228de10438c46b752965b59d59df,
+        type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 1482357023}
+    - target: {fileID: 6023144231713848896, guid: 20b8228de10438c46b752965b59d59df,
+        type: 3}
+      propertyPath: deathPlane
+      value: 
+      objectReference: {fileID: 383027257}
     - target: {fileID: 6252965108309436846, guid: 20b8228de10438c46b752965b59d59df,
         type: 3}
       propertyPath: m_Mesh
@@ -34727,7 +34737,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-17884
+  m_Name: pb_Mesh-42832
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -37380,7 +37390,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-17882
+  m_Name: pb_Mesh-42830
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

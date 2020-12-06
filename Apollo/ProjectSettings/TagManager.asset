@@ -18,6 +18,7 @@ TagManager:
   - deathPlane
   - forceField
   - MenuPill
+  - deathPlane2
   layers:
   - Default
   - TransparentFX

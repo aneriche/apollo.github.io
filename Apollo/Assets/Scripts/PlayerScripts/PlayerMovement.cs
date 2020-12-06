@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
 
     private bool doRotate = false;
 
+    public Transform respawnPoint;
+    public Transform deathPlane;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +47,11 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         transform.rotation = Quaternion.LookRotation(move);
+
+        if (Player.transform.position.y < deathPlane.transform.position.y)
+        {
+            Player.transform.position = respawnPoint.transform.position;
+        }
         
     }
 }
