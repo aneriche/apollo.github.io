@@ -28,7 +28,7 @@ public class GravityScript : MonoBehaviour
     {
         if (player.transform.position.y < deathPlane.transform.position.y)
         {
-            player.transform.position = respawnPoint.transform.position;
+            //player.transform.position = respawnPoint.transform.position;
         }
     }
 }
